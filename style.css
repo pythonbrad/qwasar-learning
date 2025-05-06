@@ -19,11 +19,11 @@ body {
 
 .col {
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	text-align: center;
     justify-content: center;
     flex: 1;
-    min-width: 640px;
+    min-width: 50vh;
 }
 
 .header {
