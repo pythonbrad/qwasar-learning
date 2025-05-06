@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+A website who show a animated bouncing box with my username on the box.
 
 ## Description
-TODO - How have you solved the problem?
+The principle is to change the direction of the box eac time it reach the screen limit.
+If it reach:
+- the top, it move down and vice-versa
+- the left, it move right and vice-verca
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation required. You just need a web browser.
 
 ## Usage
-TODO - How does it work?
+Open the website on the webbrowser.
 ```
-./my_project argument1 argument2
+firefox index.html
 ```
 
 ### The Core Team
+- Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
