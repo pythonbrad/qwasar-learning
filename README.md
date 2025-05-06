@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+A page who contains an animated box moving to the right-left corner of the page.
 
 ## Description
-TODO - How have you solved the problem?
+It done in decrimenting the `right` and `bottom` css value of the box.
+Addiotnally `setTimeout` is used for the delay, to make the motion slow.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+The website don't need an installation; A web browser is enough.
 
 ## Usage
-TODO - How does it work?
+Open the website in a webbrowser. If you have firefox, you can do liek below.
 ```
-./my_project argument1 argument2
+firefox ex00/index.html
 ```
 
 ### The Core Team
+- @pythonbrad
+- @vu_d
+- @pashayev_n
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
