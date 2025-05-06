@@ -1,7 +1,7 @@
 const db = require('./database.js');
 const express = require('express');
 const app = express();
-const port = 8000;
+const port = 8080;
 
 
 const authenticate = (req, res, next) => {
@@ -12,7 +12,7 @@ const authenticate = (req, res, next) => {
         const username = auth[0];
         const password = auth[1];
 
-        if (username === 'admin' && password === 'password') {
+        if (username === 'admin' && password === 'admin') {
             next();
         } else {
             res.status(401).send('Authentication failed');
