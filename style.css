@@ -23,7 +23,6 @@ body {
 	text-align: center;
     justify-content: center;
     flex: 1;
-    min-width: 50vh;
 }
 
 .header {
@@ -45,3 +44,10 @@ body {
 .footer {
     background-color: #444444;
 }
+
+@media (max-width: 640px) {
+    .col {
+	    min-width: 50vh;
+    }
+}
+
