@@ -2,21 +2,24 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The problem was to learn how to use a command line.
 
 ## Description
-TODO - How have you solved the problem?
+I succeeded to solve the problem.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+It don't require any installation.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+cd # to go in a repertory
+ls # to see the content of a repertory
+git # for verson control
+tar # to deal with archive
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
