@@ -21,11 +21,12 @@
     <script type="text/javascript">
         var box = document.getElementById("my_box_realtime");
 
-        const viewportWidth = window.innerWidth;
+        const viewportWidth = window.innerWidth;        // to initialize the square position top left
         const viewportHeight = window.innerHeight;
-
-        box.style.right = viewportWidth ;
-        box.style.bottom = viewportHeight ;
+        
+        box.style.right = viewportWidth - 100 ;
+        box.style.bottom = viewportHeight - 100 ;
+    
 
 	function moveToCorner() {        
 		var right = box.style.right.replace("px", "");
