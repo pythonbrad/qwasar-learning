@@ -2,21 +2,26 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Set of basic C code.
 
 ## Description
-TODO - How have you solved the problem?
+This repo contains a set of basic C code to know to write code in C.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+To compile, you will require to run the following code
+```
+# for `hello.c` by example
+gcc -o hello hello.c
+```
 
 ## Usage
-TODO - How does it work?
+After compiliation, you can run as follow.
 ```
-./my_project argument1 argument2
+./hello
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
