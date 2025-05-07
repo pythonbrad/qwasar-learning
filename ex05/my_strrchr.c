@@ -1,6 +1,6 @@
 char* my_strrchr(char* haystack, char needle)
 {
-	char *ptr = NULL;
+	char *ptr = 0;
 
 	while (*haystack != '\0') {
 		if (*haystack == needle) {
@@ -8,6 +8,10 @@ char* my_strrchr(char* haystack, char needle)
 		}
 
 		haystack++;
+	}
+
+	if (*haystack == needle) {
+		ptr = haystack;
 	}
 
 	return ptr;

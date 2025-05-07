@@ -1,10 +1,16 @@
 char* my_strncpy(char* dest, char* src, int n)
 {
-	char* p;
+	char* dest2 = dest;
 	
-	p = mempcpy(dest, src, n);
-	*p = '\0';
+	while (n > 0 && *src != '\0') {
+		*dest2 = *src;
+
+		n--;
+		src++;
+		dest2++;
+	}
+
+	*dest2 = '\0';
 
 	return dest;
 }
-

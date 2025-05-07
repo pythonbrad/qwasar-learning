@@ -1,30 +1,29 @@
 char* my_strstr(char* haystack, char* needle)
 {
-	char* start_ptr = NULL;
+	int checkpoint = 0;
 	char* curr_ptr = needle;
 
+	// empty string
 	if (*needle == '\0') {
 		return haystack;
 	}
 
-	while (*haystack != '\0') {
+	while (*haystack != '\0' && *curr_ptr != '\0') {
 		if (*haystack == *curr_ptr) {
-			if (start_ptr == NULL) {
-				start_ptr = haystack;
-			}
-
-			if (*(curr_ptr+1) == '\0') {
-				return start_ptr;
-			}
-
 			curr_ptr++;
+			checkpoint++;
 		} else {
-			start_ptr = NULL;	
-			curr_ptr = needle;	
+			curr_ptr = needle;
+			haystack = haystack - checkpoint;
+			checkpoint = 0;
 		}
 		
 		haystack++;
 	}
 
-	return NULL;
+	if (*curr_ptr != '\0') {
+		return 0;
+	}
+
+	return haystack - checkpoint;
 }

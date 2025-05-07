@@ -1,8 +1,14 @@
 char* my_strcpy(char* dest, char* src) {
-	char* p;
+	char* dest2 = dest;
 
-	p = mempcpy(dest, src, strlen(src));
-	*p = '\0';
+	while (*src != '\0') {
+		*dest2 = *src;
+
+		dest2++;
+		src++;
+	}
+
+	*dest2 = '\0';
 
 	return dest;
 }
