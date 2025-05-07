@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Set of code to learn how to use pointers in C.
 
 ## Description
-TODO - How have you solved the problem?
+Set of code to learn how to use pointers in C.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+You can compile using gcc as follow.
+```
+gcc -o hello hello.c
+```
 
 ## Usage
-TODO - How does it work?
+YOu can run as follow.
 ```
-./my_project argument1 argument2
+./hello
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
