@@ -2,21 +2,21 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Write command line.
 
 ## Description
-TODO - How have you solved the problem?
+Write command line.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation required.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+./script
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
