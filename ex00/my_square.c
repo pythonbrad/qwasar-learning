@@ -21,8 +21,15 @@ void draw(int width, int height) {
 }
 
 int main(int argc, char** argv) {
-	int width = atoi(argv[1]);
-	int height = atoi(argv[2]);
+	int width;
+	int height;
+
+	if (argc < 3) {
+		return 0;
+	}
+
+	width = atoi(argv[1]);
+	height = atoi(argv[2]);
 
 	draw(width, height);
 	// draw(5, 3);
