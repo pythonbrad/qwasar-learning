@@ -2,29 +2,25 @@
 
 int main(int argc, char** argv) {
 	FILE* file;
-	char c;
+	char c[2] = {0};
 
 	for (int i=1; i < argc; i++) {
-		file = fopen(argv[i], "r");
+		file = fopen(argv[i], "rb");
 
 		if (file == NULL) {
 			return 1;
 		}
 
-		while (1) {
-			c = fgetc(file);
-
-			if (c == EOF) {
+		while (fread(c, sizeof(char), 1, file) > 0) {
+			if (*c == EOF) {
 				break;
 			}
 
-			printf("%c", c);
+			printf("%s", c);
 		}
 
 		fclose(file);
 	}
-
-	printf("\n");
 
 	return 0;
 }
