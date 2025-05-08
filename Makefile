@@ -1,6 +1,6 @@
 SRC=main.c
-TARGET=ngram
-OBJ=ngram.o
+TARGET=my_ngram
+OBJ=$(TARGET).o
 
 all : $(TARGET)
 

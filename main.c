@@ -15,6 +15,7 @@ int main(int argc, char** argv) {
 	struct ngram ng;
 	char* str;
 	int item_idx = 0;
+	struct ngram_item temp_ngram_item;
 
 	ng.size = 0;
 	ng.items = NULL;
@@ -40,6 +41,17 @@ int main(int argc, char** argv) {
 			}
 
 			str++;
+		}
+	}
+
+	// Sort
+	for (int i = 0; i < ng.size; i++) {
+		for (int j = 0; j < ng.size; j++) {
+			if (ng.items[i].c > ng.items[j].c) continue;
+
+			temp_ngram_item = ng.items[j];
+			ng.items[j] = ng.items[i];
+			ng.items[i] = temp_ngram_item;
 		}
 	}
 
