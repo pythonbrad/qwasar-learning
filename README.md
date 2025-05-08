@@ -2,22 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+My solutions
 
 ## Description
-TODO - How have you solved the problem?
+This repo contains my solution.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Compile using gcc.
+```
+gcc -o hello hello.c
+```
 
 ## Usage
-TODO - How does it work?
+After compilation run as follow.
 ```
-./my_project argument1 argument2
+./hello
 ```
 
 ### The Core Team
-
+Brady Fomegne
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
 <span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px' /></span>
