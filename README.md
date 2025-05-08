@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+An implementation of the cat command.
 
 ## Description
-TODO - How have you solved the problem?
+The program take a list of file and print it to the standart output.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+The gcc compiler is require for compilation.
+```
+gcc -o hello hello.c
+```
 
 ## Usage
-TODO - How does it work?
+Run the compiled program.
 ```
-./my_project argument1 argument2
+./hello argument1 argument2
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
