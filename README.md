@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+A simple implementation of n-gram.
 
 ## Description
-TODO - How have you solved the problem?
+A simple implementation n-gram.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Use the following command to compile the project.
+```
+make all
+```
 
 ## Usage
-TODO - How does it work?
+You should run the program as follow.
 ```
-./my_project argument1 argument2
+./ngram argument1 argument2
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
