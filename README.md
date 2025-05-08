@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+A program that draw a square based on given width and height.
 
 ## Description
-TODO - How have you solved the problem?
+The program take a width and height as input and draw a square based on it.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Compile the code using gcc as follow.
+```
+gcc -o square square.c
+```
 
 ## Usage
-TODO - How does it work?
+Run the program as follow.
 ```
-./my_project argument1 argument2
+./square width height
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
