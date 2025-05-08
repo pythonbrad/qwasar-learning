@@ -12,6 +12,19 @@ typedef struct s_string_array
 } string_array;
 #endif
 
+int str_add(char** dest, char* src, int index) {
+	for(int k=0; src[k] != '\0'; k++) {
+		// allocate an additional memory for the character
+		*dest = realloc(*dest, (index+2) * sizeof(char));
+		(*dest)[index] = src[k];
+
+		index++;
+	}
+
+	(*dest)[index] = '\0';
+
+	return index;
+}
 
 char* my_join(string_array* array, char* sep)
 {
@@ -27,23 +40,11 @@ char* my_join(string_array* array, char* sep)
 
 	for(j=0; j < array->size; j++) {
 		str = array->array[j];
-		// allocate memory for the separator
-		output = realloc(output, (i+1) * sizeof(char));
 
-		for(k=0; str[k] != '\0'; k++) {
-			// allocate an additional memory for the character
-			output = realloc(output, (i+2) * sizeof(char));
-			output[i] = str[k];
+		i = str_add(&output, str, i);
 
-			i++;
-		}
-
-		output[i] = *sep;
-		i++;
-	}
-
-	if (i > 0) {
-		output[i-1] = '\0';
+		if (j+1 == array->size) continue;
+		i = str_add(&output, sep, i);
 	}
 
 	return output;
@@ -56,7 +57,7 @@ int main() {
 	b.size = 4;
 	b.array = a;
 
-	printf("%s\n", my_join(&b, "-"));
+	printf("%s\n", my_join(&b, "blah"));
 
 	return 0;
 }
