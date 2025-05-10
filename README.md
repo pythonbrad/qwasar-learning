@@ -2,21 +2,26 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Implementation of the mastermind game.
 
 ## Description
-TODO - How have you solved the problem?
+The user should guess the secret code to win the game.
+It can customize the maxinum number of attempt and also the secret code.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+You should use `make` to compile the code as follow.
+```
+make all
+```
 
 ## Usage
-TODO - How does it work?
+After compilation you can run the program as follow.
 ```
-./my_project argument1 argument2
+./my_mastermind
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
