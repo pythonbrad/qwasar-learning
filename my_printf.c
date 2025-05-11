@@ -131,12 +131,22 @@ int print_chr(char arg) {
 }
 
 int print_str(char* arg) {
+	if (arg == NULL) {
+		return write(1, "(null)", 6);
+	}
+
 	return write(1, arg, my_strlen(arg));
 }
 
 int print_ptr(void* arg) {
 	char* s = NULL;
-	int size = my_itoa(&s, (long) arg, 'x');
+	int size;
+
+	if (arg == NULL) {
+		return write(1, "(nil)", 5);
+	}
+
+	size = my_itoa(&s, (long) arg, 'x');
 	
 	return write(1, "0x", 2) + write(1, s, size);
 }
@@ -205,10 +215,16 @@ int main() {
 
 	printf("size: %d\n", my_printf("Hello %%s=%s\n", ptr));
 	printf("size: %d\n", printf("Hello %%s=%s\n", ptr));
+	printf("size: %d\n", my_printf("Hello %%s=%s\n", NULL));
+	printf("size: %d\n", printf("Hello %%s=%s\n", NULL));
 	printf("size: %d\n", my_printf("Hello %%c=%c\n", *ptr));
 	printf("size: %d\n", printf("Hello %%c=%c\n", *ptr));
+	printf("size: %d\n", my_printf("Hello %%c=%c\n", NULL));
+	printf("size: %d\n", printf("Hello %%c=%c\n", NULL));
 	printf("size: %d\n", my_printf("Hello %%p=%p\n", *ptr));
 	printf("size: %d\n", printf("Hello %%p=%p\n", *ptr));
+	printf("size: %d\n", my_printf("Hello %%p=%p\n", NULL));
+	printf("size: %d\n", printf("Hello %%p=%p\n", NULL));
 	printf("size: %d\n", my_printf("Hello %%d=%d\n", 0));
 	printf("size: %d\n", printf("Hello %%d=%d\n", 0));
 	printf("size: %d\n", my_printf("Hello %%d=%d\n", INT_MAX));
@@ -220,7 +236,7 @@ int main() {
 	printf("size: %d\n", my_printf("Hello %%x=%x\n", UINT_MAX));
 	printf("size: %d\n", printf("Hello %%x=%x\n", UINT_MAX));
 	printf("size: %d\n", my_printf("Hello %%u=%u\n", UINT_MAX));
-	printf("size: %d\n", printf("Hello %%u=%u\n", UINT_MAX));
+	printf("size: %d\n", printf("Hello %%u=%u\n", UINT_MAX));;
 
 	return 0;
 }
