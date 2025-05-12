@@ -2,21 +2,22 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Write a printf function who can manage basic convertion specification
+ like %[douxcsp].
 
 ## Description
-TODO - How have you solved the problem?
+The `my_printf` function write to the standart output in the respect of a given format.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation needed.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+my_printf("Hello %s!", "World");
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
