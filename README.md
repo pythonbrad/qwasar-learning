@@ -2,17 +2,20 @@
 ***
 
 ## Task
-Implement an iterative function that return the value of a power.
+Usage of the heap and stack
 
 ## Description
-The function multiply the number by himself n times.
+Usage of the heap and stack.
 
 ## Installation
 No installation is required. You just need to have gcc.
+```
+gcc -o foo foo.c
+```
 
 ## Usage
 ```
-my_iterative_pow(2, 4); // 16
+./foo
 ```
 
 ### The Core Team
