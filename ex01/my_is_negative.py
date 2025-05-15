@@ -4,9 +4,9 @@ def my_is_negative(nbr):
   else:
     return 1
 
-print(my_is_negative(-1))
-print(my_is_negative(1))
-print(my_is_negative(0))
+# print(my_is_negative(-1))
+# print(my_is_negative(1))
+# print(my_is_negative(0))
 
 # print(my_is_negative(1337));
 
