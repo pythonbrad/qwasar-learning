@@ -5,7 +5,7 @@ d = 10
 y = 9
 z = 11
 
-if (a > b < a < c == b):
+if (a > b < c == b):
   print("a is bigger than b AND smaller than c AND equal to d")
-if (z > a or y > a):
+elif (z > a or y > a):
   print("z OR y are bigger than a")
