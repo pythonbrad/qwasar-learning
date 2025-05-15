@@ -2,21 +2,21 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Implement an iterative function that return the value of a power.
 
 ## Description
-TODO - How have you solved the problem?
+The function multiply the number by himself n times.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required. You just need to have gcc.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+my_iterative_pow(2, 4); // 16
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
