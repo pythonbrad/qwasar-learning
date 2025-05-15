@@ -8,4 +8,4 @@ def my_string_index(param_1, param_2):
         if param_1[i] == param_2:
             return i
     
-    return 0
+    return -1
