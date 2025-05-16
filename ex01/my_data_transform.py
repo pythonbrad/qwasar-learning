@@ -30,12 +30,18 @@ def parse_date(date_time_str):
 :rtype: string[]
 """
 def my_data_transform(data):
-    return [
-        ','.join(
+    out = []
+
+    for i, row in enumerate(data.strip().split('\n')):
+        cols = row.split(',')
+
+        if not cols: continue
+
+        out.append(','.join(
             [
                 *cols[:4], cols[4].split('@')[1], parse_age(int(cols[5])),
                 *cols[6:9], parse_date(cols[9])
             ] if i != 0 else cols
-        )
-        for i, row in enumerate(data.strip().split('\n')) if (cols := row.split(','))
-    ]
+        ))
+
+    return out
