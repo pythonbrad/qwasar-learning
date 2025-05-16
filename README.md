@@ -2,21 +2,21 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Iterate through a list and make some manipulation.
 
 ## Description
-TODO - How have you solved the problem?
+Iterate through a list and make some manipulation.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Only python is needeed.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+python code.py
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
