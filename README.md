@@ -2,15 +2,16 @@
 ***
 
 ## Task
-Convert numeral to roman.
+Convert numeral to roman numerals.
 
 ## Description
-Convert numeral to roman.
+Convert numeral to roman numerals.
 
 ## Installation
-Required python.
+We only need to install python.
 
 ## Usage
+Run the following command to execute.
 ```
 python foo.py
 ```
