@@ -2,21 +2,21 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Convert numeral to roman.
 
 ## Description
-TODO - How have you solved the problem?
+Convert numeral to roman.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Required python.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+python foo.py
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
