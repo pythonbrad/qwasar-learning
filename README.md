@@ -2,18 +2,30 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consist to use sed for text manipulation.
 
 ## Description
-TODO - How have you solved the problem?
+To solve this task, i used patterns.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+You need to download the dataset.
+
+```
+mkdir -p ex00
+wget 'https://storage.googleapis.com/qwasar-public/track-cloud-devops/sedance.txt' -O ex00/my_first_sed.txt
+mkdir -p ex01
+wget 'https://storage.googleapis.com/qwasar-public/track-cloud-devops/sedance.txt' -O ex01/my_first_sed_inplace.txt
+```
 
 ## Usage
-TODO - How does it work?
+- Exercise 0
 ```
-./my_project argument1 argument2
+sed 's/\<5\>/five/g' ex00/my_first_sed.txt
+```
+
+- Exercise 1
+```
+sed -i 's/\<5\>/five/g' ex01/my_first_sed_inplace.txt
 ```
 
 ### The Core Team
