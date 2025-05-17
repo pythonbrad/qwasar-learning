@@ -2,21 +2,33 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consist to use grep for text searching in files.
 
 ## Description
-TODO - How have you solved the problem?
+I solved the problem using regular experession with grep.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required, you just need to use grep.
 
 ## Usage
-TODO - How does it work?
+
+- Exercise 0
 ```
-./my_project argument1 argument2
+grep ablaze ex00/text.txt > ex00/my_first_grep.txt
+```
+
+- Exercise 1
+```
+grep -w abandon ex01/text.txt > ex01/my_grep_whole_word.txt
+```
+
+- Exercise 2
+```
+grep -iw professor ex02/text.txt | grep 'quip\|sleep' > ex02/my_grep_whole_word.txt
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>

@@ -1,0 +1,7 @@
+Description
+
+In this exercise, you will use the grep command to display all lines containing the word "ablaze" in a text file and save the output to a new text file named "my_first_grep.txt". Follow the steps below:
+
+1 - Open the terminal on your Linux or macOS machine. 2 - Navigate to the directory where the text file is located. 3 - Type the command "grep ablaze file.txt > my_first_grep.txt" and hit enter. Replace "file.txt" with the name of the actual text file you want to search. 4 - The terminal will display all lines in the text file that contain the word "ablaze", and the output will also be saved to a new text file named "my_first_grep.txt" in the same directory.
+
+Note that the ">" symbol is used to redirect the output of the grep command to a new file instead of displaying it in the terminal. If you want to append the output to an existing file instead of creating a new one, you can use ">>" instead of ">" in the command.
