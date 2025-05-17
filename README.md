@@ -2,21 +2,23 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+This task consisted to use vim to edit files.
 
 ## Description
-TODO - How have you solved the problem?
+This task consisted to use vim to edit files.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required.
+You just need to have vim.
 
 ## Usage
-TODO - How does it work?
+Use the vim command as follow
 ```
-./my_project argument1 argument2
+vim file
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
