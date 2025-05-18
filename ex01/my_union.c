@@ -7,7 +7,7 @@
 
 int unique_insert(char **dest, char *str, int length) {
 	while (*str != '\0') {
-		if (strchr(*dest, *str) == NULL) {
+		if (strchr(*dest, *str) == 0) {
 			*dest = realloc(*dest, (length+2) * sizeof(char));
 			(*dest)[length] = *str;
 			(*dest)[length+1] = '\0';

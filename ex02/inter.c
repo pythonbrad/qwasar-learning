@@ -23,7 +23,7 @@ char* inter(char* str_a, char* str_b)
 	*temp = '\0';
 	
 	while (*str_a != '\0') {
-		if (strchr(str_b, *str_a) != NULL) {
+		if (strchr(temp, *str_a) == 0 && strchr(str_b, *str_a) != 0) {
 			temp = realloc(temp, (length+2) * sizeof(char));
 			temp[length] = *str_a;
 			temp[length+1] = '\0';
