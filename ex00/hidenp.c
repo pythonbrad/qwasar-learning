@@ -1,8 +1,4 @@
 /*
-#include <stdio.h>
-*/
-
-/*
 **
 ** QWASAR.IO -- hidenp
 **
@@ -15,29 +11,13 @@
 
 int hidenp(char *stra, char *strb)
 {
-	char *ptra = stra;
-	char *ptrb = strb;
-
-	while (*ptra != '\0' && *ptrb != '\0') {
-		// printf("%s %s\n", ptra, ptrb);
-		if (*ptra != *ptrb) {
-			ptra = stra;
-			ptrb = ++strb;
-
-			continue;
+	while (*stra != '\0' && *strb != '\0') {
+		if (*stra == *strb) {
+			stra++;
 		}
 
-		ptra++;
-		ptrb++;
+		strb++;
 	}
 
-	return *ptra == '\0';
+	return *stra == '\0';
 }
-
-/*
-int main() {
-	printf("%d\n", hidenp("abc", "ababababaabbacabababbc"));
-
-	return 0;
-}
-*/

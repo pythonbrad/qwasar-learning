@@ -3,11 +3,12 @@
 #include <stdlib.h>
 */
 
-#ifndef STRING_ARRAY
-#define STRING_ARRAY
-typedef struct s_string_array {
-	char **array;
-	int size;
+#ifndef STRUCT_STRING_ARRAY
+#define STRUCT_STRING_ARRAY
+typedef struct s_string_array
+{
+    int size;
+    char** array;
 } string_array;
 #endif
 
