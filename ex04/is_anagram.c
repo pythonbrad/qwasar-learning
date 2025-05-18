@@ -15,18 +15,28 @@
 
 int is_anagram(char* str_a, char* str_b)
 {
-	char diff;
+	// ASCII: 32 -> 126
+	int freq[94] = {0};
 
 	while (*str_a != '\0' || *str_b != '\0') {
-		diff = diff + *str_a++ - *str_b++;
+		freq[*str_a - 32]++;
+		freq[*str_b - 32]++;
+
+		str_a++;
+		str_b++;
 	}
 
-	return diff == 0;
+	// Check the parity
+	for (int i = 0; i < 94; i++) {
+		if (freq[i] % 2) return 0;
+	}
+
+	return 1;
 }
 
 /*
 int main() {
-	printf("%d\n", is_anagram("abcdef", "fabcde"));
+	printf("%d\n", is_anagram("ad", "bc"));
 
 	return 0;
 }
