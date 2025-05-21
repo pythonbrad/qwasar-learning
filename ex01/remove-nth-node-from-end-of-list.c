@@ -10,10 +10,10 @@ typedef struct s_listnode
 #endif
 
 listnode* reverse_linked_list(listnode *node) {
-	listnode* parent = NULL;
+	listnode* parent = 0;
 	listnode* child;
 
-	while ((child = node->next) != NULL) {
+	while ((child = node->next) != 0) {
 		node->next = parent;
 		parent = node;
 		node = child;
@@ -75,7 +75,7 @@ int main() {
 
 	remove_nth_node_from_end_of_list(&a, 1);
 
-	while (node != NULL) {
+	while (node != 0) {
 		printf("%d\n", node->val);
 
 		node = node->next;

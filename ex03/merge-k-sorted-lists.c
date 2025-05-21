@@ -48,11 +48,11 @@ listnode* merge_k_sorted_lists(listnode_array *data)
 
 	while (1) {
 		pivot = -1;
-		min = NULL;
+		min = 0;
 		
 		// Determine the new min
 		for (int i = 0; i < data->size; i++) {
-			if (state[i] != NULL && (min == NULL || state[i]->val <= *min)) {
+			if (state[i] != 0 && (min == 0 || state[i]->val <= *min)) {
 				min = &state[i]->val;
 				pivot = i;
 			}
@@ -66,7 +66,7 @@ listnode* merge_k_sorted_lists(listnode_array *data)
 		temp_tail->next = malloc(sizeof(listnode));
 		temp_tail = temp_tail->next;
 		temp_tail->val = state[pivot]->val;
-		temp_tail->next = NULL;
+		temp_tail->next = 0;
 
 		// Move the pivot state
 		state[pivot] = state[pivot]->next;
@@ -109,7 +109,7 @@ int main() {
 	//
 	out = merge_k_sorted_lists(&data);
 
-	for (listnode* tail = out; tail != NULL; tail = tail->next) {
+	for (listnode* tail = out; tail != 0; tail = tail->next) {
 		printf("%d\n", tail->val);
 	}
 

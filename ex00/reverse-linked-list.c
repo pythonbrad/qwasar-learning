@@ -21,10 +21,10 @@ typedef struct s_listnode
 
 listnode* reverse_linked_list(listnode* node)
 {
-	listnode* parent = NULL;
+	listnode* parent = 0;
 	listnode* child;
 
-	while ((child = node->next) != NULL) {
+	while ((child = node->next) != 0) {
 		node->next = parent;
 		parent = node;
 		node = child;

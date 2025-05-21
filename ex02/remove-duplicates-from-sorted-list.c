@@ -23,7 +23,7 @@ listnode* remove_duplicates_from_sorted_list(listnode* node)
 {
 	listnode *head = node;
 
-	while (node->next != NULL) {
+	while (node->next != 0) {
 		if (node->val == node->next->val) {
 			*node = *node->next;
 		} else {
