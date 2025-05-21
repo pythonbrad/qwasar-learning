@@ -1,4 +1,4 @@
-#include <stdio.h>
+// #include <stdio.h>
 
 #ifndef STRUCT_LISTNODE
 #define STRUCT_LISTNODE
@@ -40,22 +40,27 @@ listnode* remove_nth_node_from_end_of_list(listnode* node, int n)
 	listnode *head = reverse_linked_list(node);
 	node = head;
 
-	for (int i = 0; i < n; i++) {
+	// Move to the node
+	for (int i = 0; i < n-1; i++) {
 		node = node->next;
-		i++;
+	}
+
+	// printf("--%d--\n", node->val);
+
+	if (n == 1) {
+		*head = *head->next;
 	}
 
 	head = reverse_linked_list(head);
 
-	if (n == 1) {
-		node->next = NULL;
-	} else if (n > 1) {
-		*node = *(node->next);
+	if (n > 1) {
+		*node = *node->next;
 	}
 
 	return head;
 }
 
+/*
 int main() {
 	listnode a, b, c, d;
 	listnode *node = &a;
@@ -68,7 +73,7 @@ int main() {
 	c.next = &d;
 	d.val = 4;
 
-	remove_nth_node_from_end_of_list(&a, 4);
+	remove_nth_node_from_end_of_list(&a, 1);
 
 	while (node != NULL) {
 		printf("%d\n", node->val);
@@ -78,3 +83,4 @@ int main() {
 
 	return 0;
 }
+*/
