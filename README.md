@@ -2,21 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consited to display a chrismas tree.
 
 ## Description
-TODO - How have you solved the problem?
+To accomplish the task, i used the following principle:
+- understand the logic behind the tree
+- break the problem in smaller ones
+- determine the middle of a tree
+- used the pascal table to determine the start point of a tree
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required. You just need to have the gcc compiler.
 
 ## Usage
-TODO - How does it work?
 ```
-./my_project argument1 argument2
+gcc -o foo foo.c && foo 5
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
