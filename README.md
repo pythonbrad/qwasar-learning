@@ -29,6 +29,7 @@ sed -i 's/\<5\>/five/g' ex01/my_first_sed_inplace.txt
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
