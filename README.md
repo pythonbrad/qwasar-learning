@@ -12,10 +12,11 @@ No installation is required.
 You just need to have vim.
 
 ## Usage
-Use the vim command as follow
+Use the vim command as follow.
 ```
-vim file
+vi file
 ```
+`i` to enter in the insertion mode.
 
 ### The Core Team
 Brady Fomegne
