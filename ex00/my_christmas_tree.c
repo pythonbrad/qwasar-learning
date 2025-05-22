@@ -29,13 +29,17 @@ int fact(int n) {
 ** @return {void}
 **
 */
-void print_tree(int middle, int start, int end) {
-	// printf("m:%d s:%d e:%d\n", middle, start, end);
+void print_tree(int width, int start, int end) {
+	int middle = width / 2;
 
-	for (int j = start; j < start+end; j++) {
-		for (int i = 1; i <= middle * 2; i++) {
-			if (i < middle - j || i > middle + j) {
+	printf("w:%d s:%d e:%d\n", width, start, end);
+
+	for (int j = start; j < end; j++) {
+		for (int i = 0; i <= middle * 2; i++) {
+			if (i < middle - j) {
 				printf(" ");
+			} else if (i > middle + j) {
+				// pass
 			} else {
 				printf("*");
 			}
@@ -74,18 +78,22 @@ int pascal(int n) {
 }
 
 int main(int argc, char **argv) {
-	int size = 0, middle = 0, start = 0, end = 0;
+	int size = 0, width = 0, start = 0, end = 0, step = 0;;
 
 	if (argc < 2) return 0;
 
 	size = atoi(argv[1]);
-	middle = size * 4;
+	width = 1;
+	step = 3;
 
 	for (int i = 0; i < size; i++) {
-		start += pascal(i);
-		end = 4 + i;
+		if (i != 0 && i % 2 == 0) step++;
 
-		print_tree(middle, start, end);
+		width += step * 2;
+		start += pascal(i);
+		end = start + 4 + i;
+
+		print_tree(width, start, end);
 	}
 
 	return 0;
