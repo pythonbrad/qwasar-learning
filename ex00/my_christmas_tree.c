@@ -2,27 +2,9 @@
 #include <stdlib.h>
 
 /*
-** Return the factorial of n.
-**
-** @param {int}
-**
-** @return {int}
-**
-*/
-int fact(int n) {
-	int out = 1;
-
-	for (int i = 0; i < n; i++) {
-		out = out * (n - i);
-	};
-
-	return out;
-}
-
-/*
 ** Print a chrismas tree.
 **
-** @param {int} fwidth: the full width of the tree
+** @param {int} fwidth: the width of the plan
 ** @param {int} width: the width of the tree
 ** @param {int} height: the height of the tree
 **
@@ -30,11 +12,14 @@ int fact(int n) {
 **
 */
 void print_tree(int fwidth, int width, int height) {
-	printf("fw:%d w:%d h:%d\n", fwidth, width, height);
+	// printf("fw:%d w:%d h:%d\n", fwidth, width, height);
 
+	// Determine the tree growing
+	// w - 2h - 1 = 0
 	for (int j = width-(height-1)*2; j <= width; j+=2) {
-		printf("%03d: ", j);
+		// printf("%03d: ", j);
 
+		// Adjust the tree to the middle of the plan
 		for (int i = 0; i < (fwidth-j) / 2; i++) {
 			printf(" ");
 		}
@@ -48,49 +33,39 @@ void print_tree(int fwidth, int width, int height) {
 }
 
 /*
-** Return the nth value of the pascal table.
+** Return the width of the nth tree.
 **
-** @param {int} n
+** @param {int} size
 **
 ** @return {int}
 **
 */
-int pascal(int n) {
-	int i = 0, j = 0;
+int tree_width(int nth) {
+	int width = 1, step = 3;
 
-	if (n == 0) return 0;
+	for (int i = 0; i < nth; i++) {
+		if (i != 0 && i % 2 == 0) step++;
 
-	// Go to the nth position
-	for (j = 2; n > 0; j++) {
-		for (i = 1; i <= j - 1 && n > 0; i++) {
-			n--;
-		}
+		width += step * 2;
 	}
 
-	j--;
-	i--;
-
-	// printf("C(%d, %d)\n", j, i);
-
-	return fact(j) / (fact(i) * fact(j-i));
+	return width;
 }
 
 int main(int argc, char **argv) {
-	int size = 0, width = 0, height = 0, step = 0;;
+	int size = 0, fwidth = 0, width = 0, height = 0;
 
 	if (argc < 2) return 0;
 
 	size = atoi(argv[1]);
-	width = 1;
-	step = 3;
+	fwidth = tree_width(size);
+	height = 0;
 
 	for (int i = 0; i < size; i++) {
-		if (i != 0 && i % 2 == 0) step++;
-
-		width += step * 2;
 		height = 4 + i;
+		width = tree_width(i+1);
 
-		print_tree(101, width, height);
+		print_tree(fwidth, width, height);
 	}
 
 	return 0;
