@@ -15,17 +15,38 @@ void print_tree(int fwidth, int width, int height) {
 	// printf("fw:%d w:%d h:%d\n", fwidth, width, height);
 
 	// Determine the tree growing
-	// w - 2h - 1 = 0
-	for (int j = width-(height-1)*2; j <= width; j+=2) {
-		// printf("%03d: ", j);
+	for (int w = width-(height-1)*2; w <= width; w+=2) {
+		// printf("%03d: ", w);
 
-		// Adjust the tree to the middle of the plan
-		for (int i = 0; i < (fwidth-j) / 2; i++) {
+		// Adjustment to have the tree at the middle of the plan
+		for (int i = 0; i < (fwidth-w) / 2; i++) {
 			printf(" ");
 		}
 
-		for (int i = 0; i < j; i++) {
+		for (int i = 0; i < w; i++) {
 			printf("*");
+		}
+
+		printf("\n");
+	}
+}
+/*
+** Print foot of a chrismas tree.
+**
+** @param {int} width: the width of the tree
+** @param {int} size: size of the tree
+**
+** @return {void}
+**
+*/
+void print_tree_foot(int width, int size) {
+	for (int j = 0; j < size; j++) {
+		for (int i = 0; i <= (width - size) / 2; i++) {
+			printf(" ");
+		}
+
+		for (int i = 0; i < size; i++) {
+			printf("|");
 		}
 
 		printf("\n");
@@ -33,7 +54,7 @@ void print_tree(int fwidth, int width, int height) {
 }
 
 /*
-** Return the width of the nth tree.
+** Return the width of the nth subtree.
 **
 ** @param {int} size
 **
@@ -59,7 +80,6 @@ int main(int argc, char **argv) {
 
 	size = atoi(argv[1]);
 	fwidth = tree_width(size);
-	height = 0;
 
 	for (int i = 0; i < size; i++) {
 		height = 4 + i;
@@ -67,6 +87,8 @@ int main(int argc, char **argv) {
 
 		print_tree(fwidth, width, height);
 	}
+
+	print_tree_foot(fwidth, size);
 
 	return 0;
 }

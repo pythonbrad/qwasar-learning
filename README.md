@@ -2,21 +2,29 @@
 ***
 
 ## Task
-The task consited to display a chrismas tree.
+The task consisted to display a chrismas tree.
 
 ## Description
-To accomplish the task, i used the following principle:
-- understand the logic behind the tree
+To accomplish the task, i gone through the following steps:
+- understand the logic behind the building of the tree (the growing)
 - break the problem in smaller ones
-- determine the middle of a tree
-- used the pascal table to determine the start point of a tree
+- determine the middle of a tree for subtree aligments
+
+From what i got, the chrismas tree is composed of n subtrees.
+Each subtree has his width and height.
+The dimension of a nth subtree can be obtained by:
+- `height = 4 + nth - 1`.
+- `width(nth) = (2 + nth) x 2 + width(nth-1)` with width(1) = 1
+
+For the alignment, we can determine the start point of the the nth subtree by 
+`start_point(nth) = (width(last) - width(nth)) / 2`
 
 ## Installation
 No installation is required. You just need to have the gcc compiler.
 
 ## Usage
 ```
-gcc -o foo foo.c && foo 5
+gcc -o tree tree.c && tree <size>
 ```
 
 ### The Core Team
