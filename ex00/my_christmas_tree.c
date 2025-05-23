@@ -41,7 +41,7 @@ void print_tree(int fwidth, int width, int height) {
 */
 void print_tree_foot(int width, int size) {
 	for (int j = 0; j < size; j++) {
-		for (int i = 0; i <= (width - size) / 2; i++) {
+		for (int i = 0; i <= (width - 1 - size) / 2; i++) {
 			printf(" ");
 		}
 

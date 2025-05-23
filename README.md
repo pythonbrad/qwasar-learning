@@ -14,7 +14,7 @@ From what i got, the chrismas tree is composed of n subtrees.
 Each subtree has his width and height.
 The dimension of a nth subtree can be obtained by:
 - `height = 4 + nth - 1`.
-- `width(nth) = (2 + nth) x 2 + width(nth-1)` with width(1) = 1
+- `width(nth) = (2 + nth) x 2 + width(nth-1) with width(1) = 1`
 
 For the alignment, we can determine the start point of the the nth subtree by 
 `start_point(nth) = (width(last) - width(nth)) / 2`
