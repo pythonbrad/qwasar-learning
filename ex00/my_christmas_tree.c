@@ -20,29 +20,27 @@ int fact(int n) {
 }
 
 /*
-** Return the nth value of the pascal table.
+** Print a chrismas tree.
 **
-** @param {int} middle: the middle position of the tree
-** @param {int} start: the number of row to skip
-** @param {int} end: the last row of the tree
+** @param {int} fwidth: the full width of the tree
+** @param {int} width: the width of the tree
+** @param {int} height: the height of the tree
 **
 ** @return {void}
 **
 */
-void print_tree(int width, int start, int end) {
-	int middle = width / 2;
+void print_tree(int fwidth, int width, int height) {
+	printf("fw:%d w:%d h:%d\n", fwidth, width, height);
 
-	printf("w:%d s:%d e:%d\n", width, start, end);
+	for (int j = width-(height-1)*2; j <= width; j+=2) {
+		printf("%03d: ", j);
 
-	for (int j = start; j < end; j++) {
-		for (int i = 0; i <= middle * 2; i++) {
-			if (i < middle - j) {
-				printf(" ");
-			} else if (i > middle + j) {
-				// pass
-			} else {
-				printf("*");
-			}
+		for (int i = 0; i < (fwidth-j) / 2; i++) {
+			printf(" ");
+		}
+
+		for (int i = 0; i < j; i++) {
+			printf("*");
 		}
 
 		printf("\n");
@@ -78,7 +76,7 @@ int pascal(int n) {
 }
 
 int main(int argc, char **argv) {
-	int size = 0, width = 0, start = 0, end = 0, step = 0;;
+	int size = 0, width = 0, height = 0, step = 0;;
 
 	if (argc < 2) return 0;
 
@@ -90,10 +88,9 @@ int main(int argc, char **argv) {
 		if (i != 0 && i % 2 == 0) step++;
 
 		width += step * 2;
-		start += pascal(i);
-		end = start + 4 + i;
+		height = 4 + i;
 
-		print_tree(width, start, end);
+		print_tree(101, width, height);
 	}
 
 	return 0;
