@@ -2,21 +2,31 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consist to install terraform on an EC2 instance.
 
 ## Description
-TODO - How have you solved the problem?
+The accomplisment of this task require to have an AWS account and create an EC2 instance.
+Once the instance is started, you should be connected t it through an SSH connection via the command `ssh <username>@<instance-public-ip>`
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+To install terraform on an EC2, you can use the following command.
+```
+sudo yum update -y
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+```
 
 ## Usage
-TODO - How does it work?
+Use the command below to get the version of the installed terraform.
 ```
-./my_project argument1 argument2
+terraform --version
 ```
 
+You can customize the output format, consult `terraform -version -help`.
+
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
