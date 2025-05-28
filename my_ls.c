@@ -37,6 +37,7 @@ int my_strcmp(char *haystack, char *needle) {
 	return -1;
 }
 
+//
 string_array* my_string_array_sort(string_array *data) {
 	char *temp = NULL;
 
@@ -65,12 +66,14 @@ void sort_path_insert(path_linkedlist *node, path_linkedlist *new_node, option *
 	path_linkedlist temp = {0};
 
 	while (node != NULL && node->path != NULL) {
+		// Time sort.
 		if (opt != NULL && opt->time_sort && (
 			new_node->st_mtim.tv_sec > node->st_mtim.tv_sec
 			|| (new_node->st_mtim.tv_sec == node->st_mtim.tv_sec
 				&& new_node->st_mtim.tv_nsec > node->st_mtim.tv_nsec)
 		)) break;
 
+		// Lexicographical sort.
 		if (opt != NULL && !opt->time_sort && my_strcmp(new_node->path, node->path) == 1) break;
 
 		parent = node;
@@ -264,6 +267,14 @@ void _my_ls(string_array *paths, option *opt) {
 	free_path_linkedlist(root_dirnode.next);
 }
 
+void print_help() {
+	printf("my_ls -- list directory contents.\n");
+	printf("Usage: my_ls [-at] [file ...]\n");
+	printf("-a Include directory entries whose names begin with a dot (.).\n");
+	printf("-t Sort by time modified (most recently modified first)\n");
+	printf("\tif not specified, the sorting will be in a lexicographical order.");
+}
+
 int main(int argc, char **argv) {
 	string_array args = {0};
 
@@ -279,6 +290,12 @@ int main(int argc, char **argv) {
 			break;
 		}
 
+		if (my_strcmp(argv[argi], "--help") == 0) {
+			print_help();
+
+			return 0;
+		}
+
 		for (int i = 1; argv[argi][i] != '\0'; i++) {
 			switch (argv[argi][i]) {
 			case 'a':
@@ -288,7 +305,8 @@ int main(int argc, char **argv) {
 				opt.time_sort = true;
 				break;
 			default:
-				break;
+				printf("Unknow option `-%c`.\n", argv[argi][i]);
+				return 1;
 			}
 		}
 	}

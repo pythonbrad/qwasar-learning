@@ -2,21 +2,33 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task contisted to implement a simple version of the linux command `ls`.
 
 ## Description
-TODO - How have you solved the problem?
+This implementatino should be able to list the file present in a directory.
+With provided options like `-t` and `-a`, we should be able to sort
+ by the last motified time and show files who start by a dot (.).
+
+The implementation require to use the C file system libraries.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+You can compile the program using make.
+```
+make re
+```
 
 ## Usage
-TODO - How does it work?
+
 ```
-./my_project argument1 argument2
+./my_ls [-at] [file ...]
+
+# To consult the usage manual.
+./my_ls --help
+
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
