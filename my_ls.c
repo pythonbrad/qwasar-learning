@@ -42,7 +42,7 @@ string_array* my_string_array_sort(string_array *data) {
 
 	for (int i = 0; i < data->size; i++) {
 		for (int j = i+1; j < data->size; j++) {
-			if (my_strcmp(data->array[i], data->array[j]) != 1) continue;
+			if (my_strcmp(data->array[i], data->array[j]) == 1) continue;
 
 			// swap
 			temp = data->array[i];

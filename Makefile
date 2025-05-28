@@ -17,3 +17,6 @@ fclean: clean
 	rm -rf ${TARGET}
 
 re: fclean all
+
+.gitignore:
+	printf "${OBJ}\n${TARGET}" > .gitignore
