@@ -242,7 +242,7 @@ void _my_ls(string_array *paths, option *opt) {
 		printf("%s\n", node->path);
 	}
 
-	if (root_dirnode.path != NULL) {
+	if (root_filenode.path != NULL) {
 		printf("\n");
 	}
 
