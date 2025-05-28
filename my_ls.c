@@ -247,7 +247,11 @@ void _my_ls(string_array *paths, option *opt) {
 	}
 
 	for (node = &root_dirnode; node != NULL && node->path != NULL; node = node->next) {
-		printf("%s:\n", node->path);
+		// Only if there is many directories to display.
+		if (root_dirnode->next != NULL) {
+			printf("%s:\n", node->path);
+		}
+
 		glob(node->path, opt);
 
 		if (node->next != NULL) {
