@@ -2,21 +2,36 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consisted to learn the basics of linux process management.
 
 ## Description
-TODO - How have you solved the problem?
+When working in a terminal, we can suspend a program using `CTRL+Z` 
+and resume it using `fg`.
+The `ps` command help us to get the PID of a progam. And we can use 
+the `kill` command to close a running program.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required.
 
 ## Usage
-TODO - How does it work?
+
+ex00: Suspend a program and get his PID.
+
 ```
-./my_project argument1 argument2
+vi #
+# press CTRL+Z
+ps # to consult the running process
+fg # to resume the suspended program
+```
+
+ex01: Close a running program using his PID.
+
+```
+kill <PID>
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
