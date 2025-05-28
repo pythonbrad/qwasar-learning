@@ -32,9 +32,9 @@ awk '/is/' input.txt
 ex01: Display all lines containing no more than 2 fields.
 
 ```
-awk 'NF < 3'
+awk 'NF < 3' > my_search_with_awk.txt
 # or
-awk 'NF < 3 { print }'
+awk 'NF < 3 { print }' > my_more_complex_search_with_awk.txt
 ```
 
 ### The Core Team
