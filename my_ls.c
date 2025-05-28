@@ -248,7 +248,7 @@ void _my_ls(string_array *paths, option *opt) {
 
 	for (node = &root_dirnode; node != NULL && node->path != NULL; node = node->next) {
 		// Only if there is many directories to display.
-		if (root_dirnode->next != NULL) {
+		if (root_dirnode.next != NULL) {
 			printf("%s:\n", node->path);
 		}
 
