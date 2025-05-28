@@ -2,21 +2,43 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consisted to learn the basics of awk.
 
 ## Description
-TODO - How have you solved the problem?
+awk is a program that we can use for searching in a file.
+Basically, an awk program looks like below.
+```
+pattern { action } // The default action is 'print'
+```
+And can be run using the awk commmand.
+```
+awk 'program' input-file
+```
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+For this task, you will need to download a dataset.
+```
+wget https://storage.googleapis.com/qwasar-public/track-cloud-devops/awkard.txt -O input.txt
+```
 
 ## Usage
-TODO - How does it work?
+
+ex00: Display all lines containing the word "is".
+
 ```
-./my_project argument1 argument2
+awk '/is/' input.txt
+```
+
+ex01: Display all lines containing no more than 2 fields.
+
+```
+awk 'NF < 3'
+# or
+awk 'NF < 3 { print }'
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
