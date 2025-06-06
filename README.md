@@ -12,12 +12,13 @@ The tasks consisted to deploy different EC2 instances using terraform.
 
 ## Description
 
-To accomplish this tasks, i wrote a terraform instructions to:
+To accomplish this tasks, i wrote a terraform configuration to:
 
 - connect to aws
-- start an EC2 instance with ssh key
-- setup the EC2 instance using the ssh connection
-- create and config an S3 bucket
+- start an EC2 instance with ssh keypair configurated for remote access.
+- setup user accounts in the EC2 instance.
+- deploy services in the the EC2 instance.
+- create and config an S3 bucket and serve it through nginx.
 
 ## Installation
 
@@ -74,7 +75,7 @@ ping <instance-ip>
 
 **ex01**
 
-Check the new user presence.
+Check the presence of the new user.
 
 ```
 ssh -i ./ex01-keypair.pem ec2-user@<instance-ip>
@@ -88,6 +89,12 @@ Check the nginx service status.
 ```
 ssh -i ./ex02-keypair.pem ex2-user@<instance-ip>
 sudo systemctl status nginx
+```
+
+Aditonnally, you can check the HTTP access.
+
+```
+curl -I <instance-ip>
 ```
 
 **ex03**
