@@ -35,9 +35,10 @@ resource "aws_instance" "pandora" {
 
 output instance_id {
   value = aws_instance.pandora.id
-}```
+}
+```
 
-And make sure to copy the instance_id.
+NB: Make sure to copy the `instance_id`.
 
 ## Usage
 
