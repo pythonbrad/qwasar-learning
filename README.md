@@ -2,21 +2,23 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consists to provide a documentation for the terraform config file.
 
 ## Description
-TODO - How have you solved the problem?
+To document a terraform config file, we should first understand what the terraform code want to achieve. After it, we can look more in details.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+No installation is required.
 
 ## Usage
-TODO - How does it work?
+You can consult the documentation with any text viewer.
+
 ```
-./my_project argument1 argument2
+cat ex00/my_terraform_to_text.txt
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
