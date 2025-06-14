@@ -2,21 +2,49 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consists to put in practice my previous learning knowledges to deploy an EC2 instance running nginx and remote accessible via ssh.
 
 ## Description
-TODO - How have you solved the problem?
+To accomplish the task, i gone through the following steps.
+
+- Write a installation script for the nginx server: [`userdata.tpl`](userdata.tpl).
+- Configure the network policies in opening the ports 22 and 80.
+- Generate a RSA keypair for the SSH connection.
+- 
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+You will require to have an environment with [`terraform`](https://developer.hashicorp.com/terraform), [`aws-cli`](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed. And you should make sure to configure aws credentials using [`aws configure`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
+
+## Configuration
+You can change the destination of the `private key` (generated to remove access the server) on [`terraform.tfvars`](terraform.tfvars)
 
 ## Usage
-TODO - How does it work?
+You can deploy using the following command.
 ```
-./my_project argument1 argument2
+terraform init
+terraform apply
+```
+
+Note that, the instance IP / DNS will be show in the log.
+The nginx can take a little bit time (up to 5s) to start.
+
+To test if everything is ok, you can use on the following methods.
+
+- Try to access by the IP / DNS.
+
+```
+curl <instance-ip>
+```
+
+- Access the server and check the nginx status.
+
+```
+ssh -i keypair.pem ec2-user@<instance-ip>
+sudo systemctl status nginx
 ```
 
 ### The Core Team
+Brady Fomegne
 
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
