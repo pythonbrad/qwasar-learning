@@ -1,0 +1,39 @@
+Script started on 2025-06-25 23:41:12+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="168" LINES="43"]
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-package[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-package[00m$ apt [1@s[1@u[1@d[1@o[1@ [C[C[C[C i[K[Kinstall tree
+[?2004l[sudo] password for pythonbrad: 
+Sorry, try again.
+[sudo] password for pythonbrad: 
+sudo: 1 incorrect password attempt
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-package[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-package[00m$ sudo apt install tree[1P[1P[C[1@ [1@-[1@c[C[1@ [C[1P[1@'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C'
+[?2004lPassword: 
+Reading package lists... 0%Reading package lists... 100%                              Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%                                Reading state information... 0%Reading state information... 0%                                The following packages were automatically installed and are no longer required:
+  apg  linux-image-6.12.25-amd64  linux-image-6.12.27-amd64
+Use 'apt autoremove' to remove them.
+
+Installing:
+[32m  tree
+[0m
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 126
+  Download size: 59.4 kB
+  Space needed: 132 kB / 884 GB available
+
+[33m0% [Working][0m[33m0% [Waiting for headers][0m                        Get:1 http://deb.debian.org/debian trixie/main amd64 tree amd64 2.2.1-1 [59.4 kB]
+[33m9% [1 tree 6,400 B/59.4 kB 11%][0m[33m                               100% [Working][0m              Fetched 59.4 kB in 1s (46.0 kB/s)
+
+7[0;42r8[1ASelecting previously unselected package tree.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 242304 files and directories currently installed.)
+Preparing to unpack .../tree_2.2.1-1_amd64.deb ...
+7[43;0f[42m[30mProgress: [  0%][49m[39m [                                                                                                                                                  ] 87[43;0f[42m[30mProgress: [ 20%][49m[39m [█████████████████████████████▏                                                                                                                    ] 8Unpacking tree (2.2.1-1) ...
+7[43;0f[42m[30mProgress: [ 40%][49m[39m [██████████████████████████████████████████████████████████▍                                                                                       ] 8Setting up tree (2.2.1-1) ...
+7[43;0f[42m[30mProgress: [ 60%][49m[39m [███████████████████████████████████████████████████████████████████████████████████████▌                                                          ] 87[43;0f[42m[30mProgress: [ 80%][49m[39m [████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                             ] 8Processing triggers for man-db (2.13.1-1) ...
+
+7[0;43r8[1A[J[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-package[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-package[00m$ tree ex00
+[?2004l[01;34mex00[0m
+└── my_first_apt_install.txt
+
+1 directory, 1 file
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-package[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-package[00m$ exit
+[?2004lexit
+
+Script done on 2025-06-25 23:42:40+01:00 [COMMAND_EXIT_CODE="0"]
