@@ -7,7 +7,7 @@ The task consisted to learn how to use the `screen` and `script` command.
 
 ## Description
 
-The `screen` command is useful to handle multiple screen sessions.
+The `screen` command is useful to handle multiple screen sessions and specially when a long running program can be interupted by a lost connection.
 While the `script` command allows to record the outputs of the executed commands. That is useful to record what we are doing.
 
 ## Installation
