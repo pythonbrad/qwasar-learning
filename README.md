@@ -58,6 +58,7 @@ screen -r [session_id]
 You will see the output of the previous `ping` command
 
 If you consult your `ex00/my_first_screen.txt` file, you will see the outputs of the previous executed commands.
+I recommend you to use a text editor like `vim` instead of read it directly with `cat`.
 
 ### The Core Team
 
