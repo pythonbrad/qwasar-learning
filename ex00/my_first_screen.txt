@@ -1,0 +1,91 @@
+Script started on 2025-06-25 23:00:16+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="168" LINES="41"]
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-screen[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[00m$ exitscreen -rls[K[2Pexitscreen -hping google.comexit[Kping google.com[6Pscreen -h[5Pexitscreen -ls[1Pr[5Pexit[Kscreen
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;41r[H[2J]0;/etc/screenrc: unknown command 'deflogin']0;]0;/etc/screenrc: bind: unknown command 'login']0;[H[2J[H[2J
+GNU Screen version 4.09.01 (GNU) 20-Aug-23
+
+Copyright (c) 2018-2023 Alexander Naumov, Amadeusz Slawinski
+Copyright (c) 2015-2017 Juergen Weigert, Alexander Naumov, Amadeusz Slawinski
+Copyright (c) 2010-2014 Juergen Weigert, Sadrul Habib Chowdhury
+Copyright (c) 2008-2009 Juergen Weigert, Michael Schroeder, Micah Cowan, Sadrul Habib Chowdhury
+Copyright (c) 1993-2007 Juergen Weigert, Michael Schroeder
+Copyright (c) 1987 Oliver Laumann
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program (see the file COPYING); if not, see https://www.gnu.org/licenses/, or
+contact Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA.
+
+Send bugreports, fixes, enhancements, t-shirts, money, beer & pizza to screen-devel@gnu.org
+
+
+Capabilities:
++copy +remote-detach +power-detach +multi-attach +multi-user +font +color-256 +utf8 +rxvt +builtin-telnet[40;69H[Press Space or Return to end.]
+[H[2J[1m[32mpythonbrad@fodydev[0m:[1m[34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[0m$[?2004h ping gog[Kogle.com
+[?2004lPING google.com (142.250.179.78) 56(84) bytes of data.
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=1 ttl=104 time=293 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=2 ttl=104 time=311 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=3 ttl=104 time=231 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=4 ttl=104 time=254 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=5 ttl=104 time=282 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=6 ttl=104 time=197 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=7 ttl=104 time=220 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=8 ttl=104 time=242 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=9 ttl=104 time=265 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=10 ttl=104 time=288 ms
+[?1l>[41;1H
+[?1049l[23;0;0t[detached from 20467.pts-1.fodydev]
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-screen[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[00m$ screen -ls
+[?2004lThere is a screen on:
+	20467.pts-1.fodydev	(06/25/2025 11:00:26 PM)	(Detached)
+1 Socket in /run/screen/S-pythonbrad.
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-screen[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[00m$ screen -r 20467
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;41r[H[2J[H[2J[1m[32mpythonbrad@fodydev[0m:[1m[34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[0m$ ping google.com
+PING google.com (142.250.179.78) 56(84) bytes of data.
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=1 ttl=104 time=293 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=2 ttl=104 time=311 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=3 ttl=104 time=231 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=4 ttl=104 time=254 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=5 ttl=104 time=282 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=6 ttl=104 time=197 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=7 ttl=104 time=220 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=8 ttl=104 time=242 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=9 ttl=104 time=265 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=10 ttl=104 time=288 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=11 ttl=104 time=208 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=12 ttl=104 time=230 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=13 ttl=104 time=361 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=14 ttl=104 time=182 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=15 ttl=104 time=175 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=16 ttl=104 time=283 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=17 ttl=104 time=349 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=18 ttl=104 time=367 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=19 ttl=104 time=293 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=20 ttl=104 time=208 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=21 ttl=104 time=338 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=22 ttl=104 time=458 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=23 ttl=104 time=378 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=24 ttl=104 time=180 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=25 ttl=104 time=326 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=26 ttl=104 time=242 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=27 ttl=104 time=182 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=28 ttl=104 time=287 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=29 ttl=104 time=207 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=30 ttl=104 time=230 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=31 ttl=104 time=178 ms
+64 bytes from par21s19-in-f14.1e100.net (142.250.179.78): icmp_seq=32 ttl=104 time=378 ms
+^C
+--- google.com ping statistics ---
+33 packets transmitted, 32 received, 3.0303% packet loss, time 32040ms
+rtt min/avg/max/mdev = 175.300/269.503/457.701/70.903 ms
+[?2004h[1m[32mpythonbrad@fodydev[0m:[1m[34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[0m$ exit
+[?2004lexit
+[?1l>[41;1H
+[?1049l[23;0;0t[screen is terminating]
+[?2004h]0;pythonbrad@fodydev: ~/Documents/Work/JFN-QWASAR/quest-shell-screen[01;32mpythonbrad@fodydev[00m:[01;34m~/Documents/Work/JFN-QWASAR/quest-shell-screen[00m$ exit
+[?2004lexit
+
+Script done on 2025-06-25 23:01:57+01:00 [COMMAND_EXIT_CODE="0"]
