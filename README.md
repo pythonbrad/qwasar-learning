@@ -9,14 +9,6 @@ The Task consisted to deploy a rail application on AWS Elantic BeansTalk using A
 **Github**
 
 The first step consists to push the rail application source code on github.
-
-```
-git init .
-git remote add origin <>
-git commit -m init
-git push origin main
-```
-
 Since the rail application was using a github action to automate the test and lint checking, I make sure all the tests has passed successfully. The reason is to avoid to deploy a non production ready code.
 To facilitate the deployment, i adjusted the environement variable names for the production enviroment.
 
@@ -32,8 +24,8 @@ Stangely, I was in the need to complete the permission policies of the generated
 
 **AWS Certificate Manager**
 
-At this point, I was already holding a domain name and using it for a professional purpose. Then, I created a subdomain for my qwasar learning.
-I requested a ACME public certificate on AWS certificate manager. It tooks 26 hours, 72 hours was the limit, then i think is ok.
+At this point, I was already holding a domain name and using it for a another purpose. Then, I created a subdomain to continue in my qwasar learning.
+I requested a ACME public certificate on AWS certificate manager. It tooks 26 hours, 72 hours was the limit, then i think it is ok.
 
 **AWS Load Balancer**
 
@@ -44,6 +36,10 @@ I also  configurated the security group to allow https traffic with my load bala
 
 To end, i connected my load balancer to my domain name.
 
+**Challenges**
+
+The most difficult parts for me were the AWS Code pipeline and the AWS certificate manager.
+
 ## Installation
 No installation is needed.
 
@@ -52,6 +48,11 @@ No installation is needed.
 **Test the application**
 
 You can access the application at https://andromeda-two.qwasar.fodydev.org.
+Using curl you can test as follow.
+
+```
+curl -I https://andromeda-two.qwasar.fodydev.org
+```
 
 **SSL certificate**
 
