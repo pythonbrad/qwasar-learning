@@ -262,6 +262,38 @@ resource "aws_s3_bucket_policy" "allow_access" {
 */
 
 # Build and deploy Lambda functions
+# Update the application properties data
+data "local_file" "properties" {
+  filename = "${path.root}/src/main/kotlin/com/budilov/Properties.kt"
+}
+
+resource "local_file" "properties" {
+  content = replace(
+    replace(
+      replace(
+        replace(
+          replace(
+            replace(
+              data.local_file.properties.content,
+            "REGION_REPLACE_ME", local.region),
+          "ACCOUNT_REPLACE_ME", local.account_number),
+        "COGNITO_POOL_ID_REPLACE_ME", aws_cognito_identity_pool.main.id),
+      "USER_POOL_ID_REPLACE_ME", aws_cognito_user_pool.pool.id),
+    "ES_SERVICE_URL_REPLACE_ME", aws_elasticsearch_domain.es.id),
+  "BUCKET_REPLACE_ME", aws_s3_bucket.main.id)
+  filename = data.local_file.properties.filename
+
+  depends_on = [aws_elasticsearch_domain.es]
+}
+
+# Build the .jar file
+resource "null_resource" "build" {
+  provisioner "local-exec" {
+    command = "chmod 755 ${path.root}/gradlew && ${path.root}/gradlew build"
+  }
+}
+
+# Create lambda functions and deploy
 resource "aws_lambda_function" "rek_add" {
   function_name = local.function_rek_add
   filename      = local.jar_location
@@ -331,38 +363,4 @@ resource "aws_s3_bucket_notification" "main" {
     aws_lambda_permission.rek_add,
     aws_lambda_permission.rek_del,
   ]
-}
-
-# Setup Elasticsearch
-resource "aws_elasticsearch_domain" "es" {
-  domain_name           = local.es_domain_name
-  elasticsearch_version = "6.8"
-
-  cluster_config {
-    instance_type  = "m5.large.elasticsearch"
-    instance_count = 1
-  }
-
-  ebs_options {
-    ebs_enabled = true
-    volume_type = "standard"
-    volume_size = 10
-  }
-}
-
-resource "aws_elasticsearch_domain_policy" "main" {
-  domain_name = aws_elasticsearch_domain.es.domain_name
-
-  access_policies = jsonencode(
-    {
-      Version = "2012-10-17",
-      Statement = [
-        {
-          Action    = "es:*",
-          Principal = "*",
-          Effect    = "Allow",
-          Resource  = "${aws_elasticsearch_domain.es.arn}/*"
-        }
-      ]
-  })
 }

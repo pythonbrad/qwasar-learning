@@ -2,7 +2,7 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The task consists to write a terraform configuration file to deploy an infrastructure, which was previously deployed without terraform.
 
 ## Description
 TODO - How have you solved the problem?
