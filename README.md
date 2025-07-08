@@ -10,6 +10,8 @@ HCL over json file
 Remove hard code where possible
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 
+can simplify the api using https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function_url
+
 
 ## Installation
 TODO - How to install your project? npm install? make? make re?

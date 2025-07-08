@@ -78,7 +78,7 @@ resource "aws_iam_role" "unauthenticated" {
 
 resource "aws_iam_role_policy" "unauthenticated_policy" {
   name = "CognitoPolicy"
-  role = aws_iam_role.unauthenticated
+  role = aws_iam_role.unauthenticated.id
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -125,7 +125,7 @@ resource "aws_iam_role" "authenticated" {
 
 resource "aws_iam_role_policy" "authenticated_policy" {
   name = "CognitoPolicy"
-  role = aws_iam_role.authenticated
+  role = aws_iam_role.authenticated.id
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -202,19 +202,19 @@ resource "aws_iam_policy_attachment" "one" {
 
 resource "aws_iam_policy_attachment" "two" {
   name       = "${local.role_name}-amazon-rekognition-fullaccess"
-  roles      = [aws_iam_role.main]
+  roles      = [aws_iam_role.main.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonRekognitionFullAccess"
 }
 
 resource "aws_iam_policy_attachment" "three" {
   name       = "${local.role_name}-amazon-s3-fullaccess"
-  roles      = [aws_iam_role.main]
+  roles      = [aws_iam_role.main.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
 resource "aws_iam_policy_attachment" "four" {
   name       = "${local.role_name}-cloudwatch-fullaccess"
-  roles      = [aws_iam_role.main]
+  roles      = [aws_iam_role.main.name]
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
 
@@ -263,7 +263,7 @@ resource "aws_s3_bucket_cors_configuration" "main" {
 # Build and deploy Lambda functions
 # Update the application properties data
 data "local_file" "properties" {
-  filename = "${path.root}/src/main/kotlin/com/budilov/Properties.kt"
+  filename = "${local.app_root}/src/main/kotlin/com/budilov/Properties.kt"
 }
 
 resource "local_file" "properties" {
