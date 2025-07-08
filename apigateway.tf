@@ -1,4 +1,5 @@
-resource "aws_api_gateway_rest_api" "example" {
+# Importing the swagger template
+resource "aws_api_gateway_rest_api" "api" {
   body = jsonencode({
     swagger = "2.0",
     info = {
@@ -89,7 +90,7 @@ resource "aws_api_gateway_rest_api" "example" {
                 }
               }
             },
-            uri                 = "arn:aws:apigateway:${local.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.rek_search.arn}/invocations",
+            uri                 = aws_lambda_function.rek_search.invoke_arn,
             passthroughBehavior = "when_no_match",
             httpMethod          = "POST",
             contentHandling     = "CONVERT_TO_TEXT",
@@ -169,4 +170,25 @@ resource "aws_api_gateway_rest_api" "example" {
   })
 
   name = "example"
+}
+
+# Deploying the gateway 
+resource "aws_api_gateway_deployment" "api" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+}
+# Deploy to prod stage
+
+resource "aws_api_gateway_stage" "prod" {
+  deployment_id = aws_api_gateway_deployment.api.id
+  rest_api_id   = aws_api_gateway_rest_api.api.id
+  stage_name    = "prod"
+}
+
+# Grant the API Gateway access to invoke the Lambda function
+resource "aws_lambda_permission" "rek_api" {
+  function_name = aws_lambda_function.rek_add.function_name
+  statement_id  = "${local.root_name}-apigateway-prod"
+  action        = "lambda:InvokeFunction"
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "arn:aws:execute-api:${local.region}:${local.account_number}:${aws_api_gateway_rest_api.api.id}/prod/POST/picture/search"
 }

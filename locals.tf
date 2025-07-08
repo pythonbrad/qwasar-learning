@@ -1,6 +1,8 @@
 data "aws_caller_identity" "current" {}
 
 locals {
+  app_root = "${path.root}/serverless-photo-recognition"
+
   root_name         = var.root_name
   bucket_name       = "rekognition-${local.root_name}"
   region            = "us-east-1"
@@ -10,7 +12,7 @@ locals {
   table_name        = ""
 
   # Lambda
-  jar_location                = "${path.root}/build/libs/rekognition-rest-1.0-SNAPSHOT.jar"
+  jar_location                = "${local.app_root}/build/libs/rekognition-rest-1.0-SNAPSHOT.jar"
   function_rek_search         = "rekognition-search-picture-${local.root_name}"
   function_rek_add            = "rekognition-add-picture-${local.root_name}"
   function_rek_del            = "rekognition-del-picture-${local.root_name}"

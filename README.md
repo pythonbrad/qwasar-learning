@@ -6,6 +6,10 @@ The task consists to write a terraform configuration file to deploy an infrastru
 
 ## Description
 TODO - How have you solved the problem?
+HCL over json file
+Remove hard code where possible
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+
 
 ## Installation
 TODO - How to install your project? npm install? make? make re?
