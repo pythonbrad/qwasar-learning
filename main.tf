@@ -45,6 +45,8 @@ resource "aws_cognito_identity_pool_roles_attachment" "main" {
     authenticated   = aws_iam_role.authenticated.arn
     unauthenticated = aws_iam_role.unauthenticated.arn
   }
+
+  depends_on = [aws_iam_role.authenticated, aws_iam_role.unauthenticated]
 }
 
 # Create an IAM role for unauthenticated users
@@ -78,15 +80,15 @@ resource "aws_iam_role_policy" "unauthenticated_policy" {
   role = aws_iam_role.unauthenticated
 
   policy = jsonencode({
-    "Version" = "2012-10-17",
-    "Statement" = [
+    Version = "2012-10-17",
+    Statement = [
       {
-        "Effect" = "Allow",
-        "Action" = [
+        Effect = "Allow",
+        Action = [
           "mobileanalytics:PutEvents",
           "cognito-sync:*"
         ],
-        "Resource" = [
+        Resource = [
           "*"
         ]
       }
@@ -125,22 +127,22 @@ resource "aws_iam_role_policy" "authenticated_policy" {
   role = aws_iam_role.authenticated
 
   policy = jsonencode({
-    "Version" = "2012-10-17",
-    "Statement" = [
+    Version = "2012-10-17",
+    Statement = [
       {
-        "Effect" = "Allow",
-        "Action" = [
+        Effect = "Allow",
+        Action = [
           "mobileanalytics:PutEvents",
           "cognito-sync:*",
           "cognito-identity:*"
         ],
-        "Resource" = [
+        Resource = [
           "*"
         ]
       },
       {
-        "Effect" = "Allow",
-        "Action" = [
+        Effect = "Allow",
+        Action = [
           "dynamodb:GetItem",
           "dynamodb:BatchGetItem",
           "dynamodb:Query",
@@ -148,10 +150,10 @@ resource "aws_iam_role_policy" "authenticated_policy" {
           "dynamodb:UpdateItem",
           "dynamodb:DeleteItem"
         ],
-        "Resource" = [
+        Resource = [
           "arn:aws:dynamodb:${local.region}:${local.account_number}:table/${local.table_name}"
         ],
-        "Condition" = {
+        Condition = {
           "ForAllValues:StringEquals" = {
             "dynamodb:LeadingKeys" = [
               "$${cognito-identity.amazonaws.com:sub}"
@@ -160,13 +162,13 @@ resource "aws_iam_role_policy" "authenticated_policy" {
         }
       },
       {
-        "Action" = [
+        Action = [
           "s3:GetObject",
           "s3:PutObject",
           "s3:DeleteObject"
         ],
-        "Effect" = "Allow",
-        "Resource" = [
+        Effect = "Allow",
+        Resource = [
           "arn:aws:s3:::${local.bucket_name}/usercontent/$${cognito-identity.amazonaws.com:sub}/*"
         ]
       }
@@ -174,25 +176,193 @@ resource "aws_iam_role_policy" "authenticated_policy" {
   })
 }
 
-# Create the s3 bucket
-resource "aws_s3_bucket" "main" {
-  bucket = local.bucket_name
-
-}
-
-resource "aws_s3_bucket_policy" "allow_access" {
-  bucket = aws_s3_bucket.main.id
-  policy = jsonencode({
-    "Version" = "2012-10-17",
-    "Statement" = [{
-      "Sid"       = "PublicReadForGetBucketObjects",
-      "Effect"    = "Allow",
-      "Principal" = "*",
-      "Action"    = ["s3:GetObject"],
-      "Resource" = ["${aws_s3_bucket.main.arn}/*"
-      ]
+# Create IAM roles
+resource "aws_iam_role" "main" {
+  name = local.root_name
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        },
+        Action = "sts:AssumeRole"
       }
     ]
   })
 }
 
+resource "aws_iam_policy_attachment" "one" {
+  name       = "${local.root_name}-amazon-es-fullaccess"
+  roles      = [aws_iam_role.main]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonESFullAccess"
+}
+
+resource "aws_iam_policy_attachment" "two" {
+  name       = "${local.root_name}-amazon-rekognition-fullaccess"
+  roles      = [aws_iam_role.main]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonRekognitionFullAccess"
+}
+
+resource "aws_iam_policy_attachment" "three" {
+  name       = "${local.root_name}-amazon-s3-fullaccess"
+  roles      = [aws_iam_role.main]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
+
+resource "aws_iam_policy_attachment" "four" {
+  name       = "${local.root_name}-cloudwatch-fullaccess"
+  roles      = [aws_iam_role.main]
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+}
+
+# Create the photos bucket
+resource "aws_s3_bucket" "main" {
+  bucket = local.bucket_name
+}
+
+resource "aws_s3_bucket_cors_configuration" "main" {
+  bucket = aws_s3_bucket.main.id
+
+  cors_rule {
+    allowed_origins = ["*"]
+    allowed_headers = ["*"]
+    allowed_methods = [
+      "PUT",
+      "POST",
+      "DELETE",
+      "HEAD",
+      "GET"
+    ]
+    max_age_seconds = 3000
+    expose_headers = [
+      "x-amz-server-side-encryption",
+      "ETag"
+    ]
+  }
+}
+
+/*
+resource "aws_s3_bucket_policy" "allow_access" {
+  bucket = aws_s3_bucket.main.id
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Sid       = "PublicReadForGetBucketObjects",
+      Effect    = "Allow",
+      Principal = "*",
+      Action    = ["s3:GetObject"],
+      Resource  = ["${aws_s3_bucket.main.arn}/*"
+      ]
+      }
+    ]
+  })
+}
+*/
+
+# Build and deploy Lambda functions
+resource "aws_lambda_function" "rek_add" {
+  function_name = local.function_rek_add
+  filename      = local.jar_location
+  role          = aws_iam_role.main.arn
+  handler       = local.function_rek_add_handler
+  runtime       = "java8"
+  memory_size   = 192
+  timeout       = 20
+}
+
+resource "aws_lambda_function" "rek_del" {
+  function_name = local.function_rek_del
+  filename      = local.jar_location
+  role          = aws_iam_role.main.arn
+  handler       = local.function_rek_del_handler
+  runtime       = "java8"
+  memory_size   = 192
+  timeout       = 20
+}
+
+resource "aws_lambda_function" "rek_search" {
+  function_name = local.function_rek_search
+  filename      = local.jar_location
+  role          = aws_iam_role.main.arn
+  handler       = local.function_rek_search_handler
+  runtime       = "java8"
+  memory_size   = 192
+  timeout       = 20
+}
+
+# Setup the S3 events
+# Adding the ADD event Lambda permissions
+resource "aws_lambda_permission" "rek_add" {
+  function_name  = aws_lambda_function.rek_add.function_name
+  statement_id   = "${local.root_name}-rekognition"
+  action         = "lambda:InvokeFunction"
+  principal      = "s3.amazonaws.com"
+  source_arn     = aws_s3_bucket.main.arn
+  source_account = local.account_number
+}
+
+# Adding the DEL event Lambda permissions
+resource "aws_lambda_permission" "rek_del" {
+  function_name  = aws_lambda_function.rek_del.function_name
+  statement_id   = "${local.root_name}-rekognition"
+  action         = "lambda:InvokeFunction"
+  principal      = "s3.amazonaws.com"
+  source_arn     = aws_s3_bucket.main.arn
+  source_account = local.account_number
+}
+
+# Creating the s3 notification events
+resource "aws_s3_bucket_notification" "main" {
+  bucket = aws_s3_bucket.main.id
+
+  lambda_function {
+    lambda_function_arn = aws_lambda_function.rek_add.arn
+    events              = ["s3:ObjectCreated:*"]
+  }
+
+  lambda_function {
+    lambda_function_arn = aws_lambda_function.rek_del.arn
+    events              = ["s3:ObjectRemoved:*"]
+  }
+
+  depends_on = [
+    aws_lambda_permission.rek_add,
+    aws_lambda_permission.rek_del,
+  ]
+}
+
+# Setup Elasticsearch
+resource "aws_elasticsearch_domain" "es" {
+  domain_name           = local.es_domain_name
+  elasticsearch_version = "6.8"
+
+  cluster_config {
+    instance_type  = "m5.large.elasticsearch"
+    instance_count = 1
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_type = "standard"
+    volume_size = 10
+  }
+}
+
+resource "aws_elasticsearch_domain_policy" "main" {
+  domain_name = aws_elasticsearch_domain.es.domain_name
+
+  access_policies = jsonencode(
+    {
+      Version = "2012-10-17",
+      Statement = [
+        {
+          Action    = "es:*",
+          Principal = "*",
+          Effect    = "Allow",
+          Resource  = "${aws_elasticsearch_domain.es.arn}/*"
+        }
+      ]
+  })
+}
