@@ -23,10 +23,26 @@ resource "aws_elasticsearch_domain_policy" "main" {
       Version = "2012-10-17",
       Statement = [
         {
-          Action    = "es:*",
-          Principal = "*",
-          Effect    = "Allow",
-          Resource  = "${aws_elasticsearch_domain.es.arn}/*"
+          Effect = "Allow",
+          Principal = {
+            AWS = aws_iam_role.main.arn
+          },
+          Action   = "es:*",
+          Resource = "${aws_elasticsearch_domain.es.arn}/*"
+        },
+        {
+          Sid    = "",
+          Effect = "Allow",
+          Principal = {
+            AWS = "*"
+          },
+          Action   = "es:*",
+          Resource = "${aws_elasticsearch_domain.es.arn}/*",
+          # Condition = {
+          #   IpAddress = {
+          #     "aws:SourceIp" = "EXTERNAL_IP_ADDRESS_REPLACE_ME"
+          #   }
+          # }
         }
       ]
   })

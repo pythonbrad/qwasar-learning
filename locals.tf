@@ -19,7 +19,7 @@ locals {
   function_rek_del_handler    = "com.budilov.removephotolambda"
 
   # IAM
-  role_name = "lambda-to-es-resk-s3-${local.root_name}"
+  role_name = "lambda-to-es-rek-s3-${local.root_name}"
 
   # ES
   es_domain_name = "rekognition-${local.root_name}"

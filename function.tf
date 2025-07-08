@@ -178,7 +178,7 @@ resource "aws_iam_role_policy" "authenticated_policy" {
 
 # Create IAM roles
 resource "aws_iam_role" "main" {
-  name = local.root_name
+  name = local.role_name
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -194,25 +194,25 @@ resource "aws_iam_role" "main" {
 }
 
 resource "aws_iam_policy_attachment" "one" {
-  name       = "${local.root_name}-amazon-es-fullaccess"
-  roles      = [aws_iam_role.main]
+  name       = "${local.role_name}-amazon-es-fullaccess"
+  roles      = [aws_iam_role.main.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonESFullAccess"
 }
 
 resource "aws_iam_policy_attachment" "two" {
-  name       = "${local.root_name}-amazon-rekognition-fullaccess"
+  name       = "${local.role_name}-amazon-rekognition-fullaccess"
   roles      = [aws_iam_role.main]
   policy_arn = "arn:aws:iam::aws:policy/AmazonRekognitionFullAccess"
 }
 
 resource "aws_iam_policy_attachment" "three" {
-  name       = "${local.root_name}-amazon-s3-fullaccess"
+  name       = "${local.role_name}-amazon-s3-fullaccess"
   roles      = [aws_iam_role.main]
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
 resource "aws_iam_policy_attachment" "four" {
-  name       = "${local.root_name}-cloudwatch-fullaccess"
+  name       = "${local.role_name}-cloudwatch-fullaccess"
   roles      = [aws_iam_role.main]
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
@@ -243,23 +243,21 @@ resource "aws_s3_bucket_cors_configuration" "main" {
   }
 }
 
-/*
-resource "aws_s3_bucket_policy" "allow_access" {
-  bucket = aws_s3_bucket.main.id
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Sid       = "PublicReadForGetBucketObjects",
-      Effect    = "Allow",
-      Principal = "*",
-      Action    = ["s3:GetObject"],
-      Resource  = ["${aws_s3_bucket.main.arn}/*"
-      ]
-      }
-    ]
-  })
-}
-*/
+# resource "aws_s3_bucket_policy" "allow_access" {
+#   bucket = aws_s3_bucket.main.id
+#   policy = jsonencode({
+#     Version = "2012-10-17",
+#     Statement = [{
+#       Sid       = "PublicReadForGetBucketObjects",
+#       Effect    = "Allow",
+#       Principal = "*",
+#       Action    = ["s3:GetObject"],
+#       Resource  = ["${aws_s3_bucket.main.arn}/*"
+#       ]
+#       }
+#     ]
+#   })
+# }
 
 # Build and deploy Lambda functions
 # Update the application properties data
