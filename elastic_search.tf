@@ -38,11 +38,12 @@ resource "aws_elasticsearch_domain_policy" "main" {
           },
           Action   = "es:*",
           Resource = "${aws_elasticsearch_domain.es.arn}/*",
-          # Condition = {
-          #   IpAddress = {
-          #     "aws:SourceIp" = "EXTERNAL_IP_ADDRESS_REPLACE_ME"
-          #   }
-          # }
+          Condition = {
+            IpAddress = {
+              "aws:SourceIp" = "127.0.0.1/32"
+              # "aws:SourceIp" = "EXTERNAL_IP_ADDRESS_REPLACE_ME"
+            }
+          }
         }
       ]
   })

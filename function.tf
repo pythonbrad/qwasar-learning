@@ -288,8 +288,10 @@ resource "local_file" "properties" {
 # Build the .jar file
 resource "null_resource" "build" {
   provisioner "local-exec" {
-    command = "chmod 755 ${path.root}/gradlew && ${path.root}/gradlew build"
+    command = "cd ${local.app_root} && chmod 755 gradlew && ./gradlew build"
   }
+
+  depends_on = [local_file.properties]
 }
 
 # Create lambda functions and deploy
@@ -301,6 +303,8 @@ resource "aws_lambda_function" "rek_add" {
   runtime       = "java8"
   memory_size   = 192
   timeout       = 20
+
+  depends_on = [null_resource.build]
 }
 
 resource "aws_lambda_function" "rek_del" {
@@ -311,6 +315,8 @@ resource "aws_lambda_function" "rek_del" {
   runtime       = "java8"
   memory_size   = 192
   timeout       = 20
+
+  depends_on = [null_resource.build]
 }
 
 resource "aws_lambda_function" "rek_search" {
@@ -321,6 +327,8 @@ resource "aws_lambda_function" "rek_search" {
   runtime       = "java8"
   memory_size   = 192
   timeout       = 20
+
+  depends_on = [null_resource.build]
 }
 
 # Setup the S3 events
