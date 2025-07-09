@@ -9,6 +9,7 @@ TODO - How have you solved the problem?
 HCL over json file
 Remove hard code where possible
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+IMPORTANT: After execution, the src/main/kotlin/com/budilov/Properties.kt can be modified, if you make some change that can impact this file, make sure to cancel the change in this file before
 
 can simplify the api using https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function_url
 

@@ -7,6 +7,10 @@ resource "aws_cognito_user_pool" "pool" {
     name                = "email"
     required            = true
     attribute_data_type = "String"
+    string_attribute_constraints {
+      min_length = 0
+      max_length = 2048
+    }
   }
 
   password_policy {
@@ -300,7 +304,7 @@ resource "aws_lambda_function" "rek_add" {
   filename      = local.jar_location
   role          = aws_iam_role.main.arn
   handler       = local.function_rek_add_handler
-  runtime       = "java8"
+  runtime       = "java11"
   memory_size   = 192
   timeout       = 20
 
@@ -312,7 +316,7 @@ resource "aws_lambda_function" "rek_del" {
   filename      = local.jar_location
   role          = aws_iam_role.main.arn
   handler       = local.function_rek_del_handler
-  runtime       = "java8"
+  runtime       = "java11"
   memory_size   = 192
   timeout       = 20
 
@@ -324,7 +328,7 @@ resource "aws_lambda_function" "rek_search" {
   filename      = local.jar_location
   role          = aws_iam_role.main.arn
   handler       = local.function_rek_search_handler
-  runtime       = "java8"
+  runtime       = "java11"
   memory_size   = 192
   timeout       = 20
 
