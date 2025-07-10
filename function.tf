@@ -292,7 +292,7 @@ resource "local_file" "properties" {
 # Build the .jar file
 resource "null_resource" "build" {
   provisioner "local-exec" {
-    command = "cd ${local.app_root} && chmod 755 gradlew && JAVA_HOME=${local.java_home} ./gradlew build"
+    command = "cd ${local.app_root} && chmod 755 gradlew && JAVA_HOME=${var.java_home} ./gradlew build"
   }
 
   depends_on = [local_file.properties]

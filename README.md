@@ -10,6 +10,8 @@ HCL over json file
 Remove hard code where possible
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 IMPORTANT: After execution, the src/main/kotlin/com/budilov/Properties.kt can be modified, if you make some change that can impact this file, make sure to cancel the change in this file before
+The aws elastic search policies can fail while the creation, don't worries, make another apply attempt and it will fix it
+https://github.com/hashicorp/terraform-provider-aws/pull/36592
 
 can simplify the api using https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function_url
 

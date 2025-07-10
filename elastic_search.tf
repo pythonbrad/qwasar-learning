@@ -47,4 +47,6 @@ resource "aws_elasticsearch_domain_policy" "main" {
         }
       ]
   })
+
+  depends_on = [aws_elasticsearch_domain.es]
 }

@@ -16,9 +16,9 @@ locals {
   function_rek_search         = "rekognition-search-picture-${local.root_name}"
   function_rek_add            = "rekognition-add-picture-${local.root_name}"
   function_rek_del            = "rekognition-del-picture-${local.root_name}"
-  function_rek_search_handler = "com.budilov.searchphotoshandler"
-  function_rek_add_handler    = "com.budilov.addphotolambda"
-  function_rek_del_handler    = "com.budilov.removephotolambda"
+  function_rek_search_handler = "com.budilov.SearchPhotosHandler::handleRequest"
+  function_rek_add_handler    = "com.budilov.AddPhotoLambda::handleRequest"
+  function_rek_del_handler    = "com.budilov.RemovePhotoLambda::handleRequest"
 
   # IAM
   role_name = "lambda-to-es-rek-s3-${local.root_name}"
