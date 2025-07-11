@@ -282,7 +282,7 @@ resource "local_file" "properties" {
           "ACCOUNT_REPLACE_ME", local.account_number),
         "COGNITO_POOL_ID_REPLACE_ME", aws_cognito_identity_pool.main.id),
       "USER_POOL_ID_REPLACE_ME", aws_cognito_user_pool.pool.id),
-    "ES_SERVICE_URL_REPLACE_ME", aws_elasticsearch_domain.es.id),
+    "ES_SERVICE_URL_REPLACE_ME", aws_elasticsearch_domain.es.endpoint),
   "BUCKET_REPLACE_ME", aws_s3_bucket.main.id)
   filename = data.local_file.properties.filename
 

@@ -37,7 +37,7 @@ output "auth_commands" {
   cat > /tmp/authflow.json <<< "{ \"AuthFlow\": \"ADMIN_NO_SRP_AUTH\", \"AuthParameters\": { \"USERNAME\": \"$${USERNAME}\", \"PASSWORD\": \"$${PASSWORD}\" } }"
   aws cognito-idp admin-initiate-auth --user-pool-id ${aws_cognito_user_pool.pool.id} --client-id ${aws_cognito_user_pool_client.client.id} --cli-input-json file:///tmp/authflow.json --query AuthenticationResult.IdToken --output text --region ${local.region}
   EOT
-    get_cognito_identity_id = "aws cognito-identity get-id --identity-pool-id ${aws_cognito_identity_pool.main.id} --logins {\"cognito-idp.${local.region}.amazonaws.com/${aws_cognito_user_pool.pool.id}\":\"$${JWT_ID_TOKEN}\"} --query IdentityId --output text --region ${local.region})"
+    get_cognito_identity_id = "aws cognito-identity get-id --identity-pool-id ${aws_cognito_identity_pool.main.id} --logins {\"cognito-idp.${local.region}.amazonaws.com/${aws_cognito_user_pool.pool.id}\":\"$${JWT_ID_TOKEN}\"} --query IdentityId --output text --region ${local.region}"
   }
 }
 
