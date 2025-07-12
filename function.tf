@@ -137,34 +137,12 @@ resource "aws_iam_role_policy" "authenticated_policy" {
       {
         Effect = "Allow",
         Action = [
-          "mobileanalytics:PutEvents",
           "cognito-sync:*",
           "cognito-identity:*"
         ],
         Resource = [
           "*"
         ]
-      },
-      {
-        Effect = "Allow",
-        Action = [
-          "dynamodb:GetItem",
-          "dynamodb:BatchGetItem",
-          "dynamodb:Query",
-          "dynamodb:PutItem",
-          "dynamodb:UpdateItem",
-          "dynamodb:DeleteItem"
-        ],
-        Resource = [
-          "arn:aws:dynamodb:${local.region}:${local.account_number}:table/${local.table_name}"
-        ],
-        Condition = {
-          "ForAllValues:StringEquals" = {
-            "dynamodb:LeadingKeys" = [
-              "$${cognito-identity.amazonaws.com:sub}"
-            ]
-          }
-        }
       },
       {
         Action = [
@@ -248,22 +226,6 @@ resource "aws_s3_bucket_cors_configuration" "main" {
   }
 }
 
-# resource "aws_s3_bucket_policy" "allow_access" {
-#   bucket = aws_s3_bucket.main.id
-#   policy = jsonencode({
-#     Version = "2012-10-17",
-#     Statement = [{
-#       Sid       = "PublicReadForGetBucketObjects",
-#       Effect    = "Allow",
-#       Principal = "*",
-#       Action    = ["s3:GetObject"],
-#       Resource  = ["${aws_s3_bucket.main.arn}/*"
-#       ]
-#       }
-#     ]
-#   })
-# }
-
 # Build and deploy Lambda functions
 # Update the application properties data
 data "local_file" "properties" {
@@ -329,7 +291,7 @@ resource "aws_lambda_function" "rek_search" {
   role          = aws_iam_role.main.arn
   handler       = local.function_rek_search_handler
   runtime       = "java11"
-  memory_size   = 192
+  memory_size   = 256
   timeout       = 20
 
   depends_on = [null_resource.build]
