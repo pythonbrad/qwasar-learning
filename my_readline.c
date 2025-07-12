@@ -5,6 +5,9 @@
 // Max line of data to read.
 int READLINE_READ_SIZE = 512;
 
+// Not used.
+void init_my_readline() {};
+
 // Copy the content from string to another.
 //
 // The destination should have a size greater than the source.
