@@ -6,8 +6,6 @@ resource "aws_api_gateway_rest_api" "api" {
       version = "2017-01-12T02:52:43Z",
       title   = local.api_gateway_name
     },
-    host     = "e9djdv2xjb.execute-api.${local.region}.amazonaws.com",
-    basePath = "/prd",
     schemes = [
       "https"
     ],
@@ -169,7 +167,7 @@ resource "aws_api_gateway_rest_api" "api" {
     ]
   })
 
-  name = "example"
+  name = "${local.root_name}-apigateway"
 }
 
 # Deploying the gateway 
@@ -184,11 +182,11 @@ resource "aws_api_gateway_stage" "prod" {
   stage_name    = "prod"
 }
 
-# Grant the API Gateway access to invoke the Lambda function
+# Grant the API Gateway access to invoke the Lambda search function
 resource "aws_lambda_permission" "rek_api" {
-  function_name = aws_lambda_function.rek_add.function_name
+  function_name = aws_lambda_function.rek_search.function_name
   statement_id  = "${local.root_name}-apigateway-prod"
   action        = "lambda:InvokeFunction"
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "arn:aws:execute-api:${local.region}:${local.account_number}:${aws_api_gateway_rest_api.api.id}/prod/POST/picture/search"
+  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*"
 }
