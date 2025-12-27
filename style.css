@@ -1,0 +1,53 @@
+body {
+    height: 100%;
+    margin: 0px !important;
+}
+
+.container {
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 1;
+}
+
+.row {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	flex: 1;
+}
+
+.col {
+	display: flex;
+	flex-flow: column wrap;
+	text-align: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.header {
+    background-color: #00B7EB;
+}
+
+.hero {
+    background-color: #FF0000;
+}
+
+.content {
+    background-color: #00FF00;
+}
+
+.sidebar {
+    background-color: #800080;
+}
+
+.footer {
+    background-color: #444444;
+}
+
+@media (max-width: 640px) {
+    .col {
+	    min-width: 50vh;
+    }
+}
+
