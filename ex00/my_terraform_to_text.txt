@@ -1,0 +1,31 @@
+# Configuration file for avalon
+
+## Description
+
+The terraform configuration automate the deployment of the `avalon` infastructure on AWS. 
+Note that the protocol SSH and HTTP will be exposed on the `avalon` EC2 instance.
+
+## Requirements
+
+- [`terraform`](https://developer.hashicorp.com/terraform)
+- [`aws-cli`](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed.
+- Configure aws credentials using [`aws configure`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
+
+## Deployement
+
+You can deploy the `avalon` infrastructure using the following command.
+
+```
+terraform init
+terraform apply
+```
+
+## Geographical zone
+
+The infrastructure will be hosted at aws region `us-east-1`.
+
+## Network
+ 
+The server will be inside a subnet and will be able to communicate with the external network through a gateway at the level of his VPC.
+
+Additionally, the ports 80 and 22 are open for incoming traffic, and for outgoing, all the ports are open.
