@@ -1,0 +1,54 @@
+<html style="background-color: black">
+    <div
+        id="my_bouncing_box"
+        style="background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;"
+    >
+        Not loaded
+    </div>
+    <script type="text/javascript">
+	    var box = document.getElementById("my_bouncing_box");
+	    box.textContent = "clark-br_f";
+	    var box_size = parseInt(box.style.minWidth.replace('px', ''));
+	    var xmove = 'left';
+	    var ymove = 'up';
+	    var delay = 300;
+	    var step = 10;
+
+	    function animBox() {
+		    var left = parseInt(box.style.left.replace('px', ''));
+		    var _top = parseInt(box.style.top.replace('px', ''));
+
+		    // y axis
+		    if (ymove == 'up' && _top <= 0) {
+			ymove = 'down';
+		    } else if (ymove == 'down' && _top + box_size >= screen.height) {
+			ymove = 'up';
+		    }
+
+		    // x axis
+		    if (xmove == 'left' && left <= 0) {
+			    xmove = 'right';
+		    } else if (xmove == 'right' && left + box_size >= screen.width) {
+			    xmove = 'left';
+		    }
+
+		    // move
+		    if (ymove == 'up') {
+			    box.style.top = _top - step;
+		    } else {
+			    box.style.top = _top + step;
+		    }
+
+		    if (xmove == 'left') {
+			    box.style.left = left - step;
+		    } else {
+			    box.style.left = left + step;
+		    }
+
+		    // repeat
+		    setTimeout(animBox, delay);
+	    }
+
+	    animBox();
+    </script>
+</html>
